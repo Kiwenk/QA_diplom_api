@@ -3,6 +3,7 @@ import json
 import allure
 
 from path import path_resources, path_schemas
+from utils.allure_logging import allure_log
 
 
 class Pet_api:
@@ -15,6 +16,9 @@ class Pet_api:
             data_validate = json.load(file)
             with allure.step('Получение ответа метода post.findByStatus'):
                 data_load = response.json()
+
+        allure_log.logging(response)
+
         return response, data_load, data_validate
 
     def pet_id_get(self, base_url, pet_id):
@@ -23,6 +27,9 @@ class Pet_api:
             data_validate = json.load(file)
             with allure.step('Получение ответа метода get.pet'):
                 data_load = response.json()
+
+        allure_log.logging(response)
+
         return response, data_load, data_validate
 
     def post_pet(self, base_url):
@@ -33,6 +40,9 @@ class Pet_api:
             data_validate = json.load(file)
             with allure.step('Получение ответа метода post.pet'):
                 data_load = response.json()
+
+        allure_log.logging(response)
+
         return response, data_load, data_validate
 
 
@@ -49,6 +59,9 @@ class Store_api:
         id_order = data_load["id"]
         with open(f'{path_schemas('post_store.json')}') as file:
             data_validate = json.load(file)
+
+        allure_log.logging(response)
+
         return response, data_load, data_validate, id_order
 
     def delete_store(self, base_url, id_order):
@@ -57,6 +70,9 @@ class Store_api:
             data_load = response.json()
         with open(f'{path_schemas('delete_store.json')}') as file:
             data_validate = json.load(file)
+
+        allure_log.logging(response)
+
         return response, data_load, data_validate
 
 
