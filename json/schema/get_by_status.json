@@ -1,77 +1,61 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "type": "array",
-    "items": {
-        "$ref": "#/definitions/Welcome10Element"
-    },
-    "definitions": {
-        "Welcome10Element": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "category": {
-                    "$ref": "#/definitions/Category"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "photoUrls": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "qt-uri-protocols": [
-                            "http",
-                            "https"
-                        ],
-                        "qt-uri-extensions": [
-                            ".jpg"
-                        ]
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Category"
-                    }
-                },
-                "status": {
-                    "$ref": "#/definitions/Status"
-                }
-            },
-            "required": [
-                "id",
-                "photoUrls",
-                "status",
-                "tags"
-            ],
-            "title": "Welcome10Element"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
         },
-        "Category": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "title": "Category"
-        },
-        "Status": {
-            "type": "string",
-            "enum": [
-                "available"
-            ],
-            "title": "Status"
+        "required": [
+          "id"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "photoUrls": {
+        "type": "array",
+        "items": {
+          "type": "string"
         }
-    }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "status": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "status"
+    ]
+  }
 }
